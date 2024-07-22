@@ -10,7 +10,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
-import postRouter from './routes/posts.js'
+import postRoutes from './routes/posts.js'
 import { register } from './controllers/auth.js';
 import { createPost } from './controllers/posts.js'
 import { verifyToken } from './middleware/auth.js';
@@ -58,11 +58,11 @@ app.use("/posts", postRoutes)
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParse: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-}).catch((error) => console.log(`${error} did not connect`))
+}).catch((error) => console.log(`${error} did not connect`));
 
 
 
